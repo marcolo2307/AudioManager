@@ -5,8 +5,13 @@
 
 #include "WindowsAudioManager.hpp"
 
+#include <endpointvolume.h>
+#include <mmdeviceapi.h>
+
 namespace WindowsAudioManager
 {
+	class Device;
+
 	class Manager : public IAudioManager
 	{
 	public:
@@ -28,6 +33,13 @@ namespace WindowsAudioManager
 
 		virtual void setMasterOutputDevice(IAudioDevicePtr device) override;
 		virtual void setMasterInputDevice(IAudioDevicePtr device) override;
+	private:
+		bool m_isLoaded;
+
+		IMMDeviceEnumerator* m_enumerator;
+		IAudioEndpointVolume* m_volume;
+
+		std::vector<std::shared_ptr<Device>> m_devices;
 	};
 }
 

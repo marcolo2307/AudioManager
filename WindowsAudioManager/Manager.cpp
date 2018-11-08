@@ -1,20 +1,42 @@
 #include "Manager.hpp"
+#include "Device.hpp"
 
 namespace WindowsAudioManager
 {
 	Manager::Manager()
 	{
+		m_isLoaded = false;
+		m_volume = nullptr;
+		m_enumerator = nullptr;
 
+		HRESULT result = CoInitialize(NULL);
+		if (result != 0)
+			return;
+		result = CoCreateInstance(__uuidof(MMDeviceEnumerator), NULL, CLSCTX_INPROC_SERVER, __uuidof(IMMDeviceEnumerator), (LPVOID*)&m_enumerator);
+		if (result != 0)
+			return;
 	}
 
 	Manager::~Manager()
 	{
+		if (m_volume != nullptr)
+		{
+			m_volume->Release();
+			m_volume = nullptr;
+		}
 
+		if (m_enumerator != nullptr)
+		{
+			m_enumerator->Release();
+			m_enumerator = nullptr;
+		}
+
+		CoUninitialize();
 	}
 
 	bool Manager::isLoaded()
 	{
-		return true;
+		return m_isLoaded;
 	}
 
 	int Manager::getVolume()
