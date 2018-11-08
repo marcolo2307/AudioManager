@@ -4,7 +4,7 @@
 #include <string>
 #include <vector>
 
-class IDevice
+class IAudioDevice
 {
 public:
 	enum Status
@@ -21,7 +21,7 @@ public:
 		Input
 	};
 
-	virtual ~IDevice() {}
+	virtual ~IAudioDevice() {}
 
 	virtual int getID() const = 0;
 	virtual std::wstring getName() const = 0;
@@ -30,7 +30,7 @@ public:
 	virtual Type getType() const = 0;
 };
 
-typedef std::weak_ptr<IDevice> IDevicePtr;
+typedef std::weak_ptr<IAudioDevice> IAudioDevicePtr;
 
 class IAudioManager
 {
@@ -44,13 +44,13 @@ public:
 	virtual bool getMute() = 0;
 	virtual void setMute(bool mute) = 0;
 
-	virtual std::vector<IDevicePtr> getAllDevices() = 0;
+	virtual std::vector<IAudioDevicePtr> getAllDevices() = 0;
 
-	virtual IDevicePtr getMasterOutputDevice() = 0;
-	virtual IDevicePtr getMasterInputDevice() = 0;
+	virtual IAudioDevicePtr getMasterOutputDevice() = 0;
+	virtual IAudioDevicePtr getMasterInputDevice() = 0;
 
-	virtual void setMasterOutputDevice(IDevicePtr device) = 0;
-	virtual void setMasterInputDevice(IDevicePtr device) = 0;
+	virtual void setMasterOutputDevice(IAudioDevicePtr device) = 0;
+	virtual void setMasterInputDevice(IAudioDevicePtr device) = 0;
 };
 
 typedef IAudioManager*(*AudioManagerLoader)();
