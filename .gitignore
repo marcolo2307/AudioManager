@@ -11,4 +11,5 @@
 !WindowsAudioManager/
 !WindowsAudioManager/*.cpp
 !WindowsAudioManager/*.hpp
+!WindowsAudioManager/*.h
 !WindowsAudioManager/CMakeLists.txt
