@@ -6,3 +6,9 @@
 # AudioManager library files
 !AudioManager/
 !AudioManager/AudioManager.hpp
+
+# Implementations
+!WindowsAudioManager/
+!WindowsAudioManager/*.cpp
+!WindowsAudioManager/*.hpp
+!WindowsAudioManager/CMakeLists.txt
