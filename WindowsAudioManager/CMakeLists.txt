@@ -4,4 +4,4 @@ project(WindowsAudioManager)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_library(WindowsAudioManager SHARED WindowsAudioManager.cpp)
+add_library(WindowsAudioManager SHARED WindowsAudioManager.cpp Manager.cpp)
