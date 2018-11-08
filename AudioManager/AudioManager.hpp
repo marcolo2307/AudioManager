@@ -46,11 +46,11 @@ public:
 
 	virtual std::vector<IAudioDevicePtr> getAllDevices() = 0;
 
-	virtual IAudioDevicePtr getMasterOutputDevice() = 0;
-	virtual IAudioDevicePtr getMasterInputDevice() = 0;
+	virtual IAudioDevicePtr getDefaultOutputDevice() = 0;
+	virtual IAudioDevicePtr getDefaultInputDevice() = 0;
 
-	virtual void setMasterOutputDevice(IAudioDevicePtr device) = 0;
-	virtual void setMasterInputDevice(IAudioDevicePtr device) = 0;
+	virtual void setDefaultOutputDevice(IAudioDevicePtr device) = 0;
+	virtual void setDefaultInputDevice(IAudioDevicePtr device) = 0;
 };
 
 typedef IAudioManager*(*AudioManagerLoader)();
