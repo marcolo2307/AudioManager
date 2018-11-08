@@ -2,3 +2,7 @@
 
 # .gitignore
 !.gitignore
+
+# AudioManager library files
+!AudioManager/
+!AudioManager/AudioManager.hpp
