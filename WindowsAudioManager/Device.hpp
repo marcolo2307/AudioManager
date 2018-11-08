@@ -16,6 +16,7 @@ namespace WindowsAudioManager
 		inline virtual Status getStatus() const override { return m_status; }
 		inline virtual Type getType() const override { return m_type; }
 
+		inline std::wstring getSystemID() const { return m_systemID; }
 	private:
 		int m_ID;
 		std::wstring m_name;
