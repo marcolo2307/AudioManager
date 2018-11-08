@@ -1,7 +1,7 @@
 #ifndef WINDOWS_AUDIO_MANAGER_HPP
 #define WINDOWS_AUDIO_MANAGER_HPP
 
-#include "../AudioManager/AudioManager.hpp"
+#include "Base.hpp"
 
 #ifndef __WIN32
 #	ifdef WINDOWS_AUDIO_MANAGER_EXPORTS

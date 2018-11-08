@@ -37,27 +37,27 @@ namespace WindowsAudioManager
 
 	}
 
-	std::vector<IDevicePtr> Manager::getAllDevices()
+	std::vector<IAudioDevicePtr> Manager::getAllDevices()
 	{
-		return std::vector<IDevicePtr>();
+		return std::vector<IAudioDevicePtr>();
 	}
 
-	IDevicePtr Manager::getMasterOutputDevice()
+	IAudioDevicePtr Manager::getMasterOutputDevice()
 	{
-		return IDevicePtr();
+		return IAudioDevicePtr();
 	}
 
-	IDevicePtr Manager::getMasterInputDevice()
+	IAudioDevicePtr Manager::getMasterInputDevice()
 	{
-		return IDevicePtr();
+		return IAudioDevicePtr();
 	}
 
-	void Manager::setMasterOutputDevice(IDevicePtr device)
+	void Manager::setMasterOutputDevice(IAudioDevicePtr device)
 	{
 
 	}
 
-	void Manager::setMasterInputDevice(IDevicePtr device)
+	void Manager::setMasterInputDevice(IAudioDevicePtr device)
 	{
 
 	}
