@@ -28,12 +28,17 @@ namespace WindowsAudioManager
 
 		virtual std::vector<IAudioDevicePtr> getAllDevices() override;
 
-		virtual IAudioDevicePtr getMasterOutputDevice() override;
-		virtual IAudioDevicePtr getMasterInputDevice() override;
+		virtual IAudioDevicePtr getDefaultOutputDevice() override;
+		virtual IAudioDevicePtr getDefaultInputDevice() override;
 
-		virtual void setMasterOutputDevice(IAudioDevicePtr device) override;
-		virtual void setMasterInputDevice(IAudioDevicePtr device) override;
+		virtual void setDefaultOutputDevice(IAudioDevicePtr device) override;
+		virtual void setDefaultInputDevice(IAudioDevicePtr device) override;
 	private:
+		IAudioDevicePtr findWindowsDeviceById(std::wstring id);
+
+		void updateDevices();
+		std::vector<std::shared_ptr<Device>> getDevices(IMMDeviceCollection* devices, EDataFlow dataFlow);
+
 		bool m_isLoaded;
 
 		IMMDeviceEnumerator* m_enumerator;
