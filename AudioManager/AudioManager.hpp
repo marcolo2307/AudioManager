@@ -30,7 +30,7 @@ public:
 	virtual Type getType() const = 0;
 };
 
-typedef std::weak_ptr<IAudioDevice> IAudioDevicePtr;
+typedef std::shared_ptr<IAudioDevice> IAudioDevicePtr;
 
 class IAudioManager
 {
