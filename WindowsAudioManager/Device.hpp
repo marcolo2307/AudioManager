@@ -8,7 +8,7 @@ namespace WindowsAudioManager
 	class Device : public IAudioDevice
 	{
 	public:
-		Device(int id, std::wstring name, std::wstring systemID);
+		Device(std::wstring name, std::wstring systemID, Status status, Type type);
 		virtual ~Device();
 
 		inline virtual int getID() const override { return m_ID; }
